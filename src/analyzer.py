@@ -14,11 +14,14 @@ def analyzer():
     urls = urls.replace('dev-ops', 'devops')
     urls = urls.replace('team-lead', 'teamlead')
     urls = urls.replace('tech-lead', 'techlead')
+    urls = urls.replace('science', 'scientist')
+    urls = urls.replace('data-scientist', 'datascientist')
     urls = urls.replace('-js-', '-javascript-')
+    urls = urls.replace('sr-', 'senior-')
 
     urls = urls.replace('\n', '-')
 
-    skip_word = ['m', 'w', 'f', 'm', 'x', 'd', 'gmbh', 'finleap']
+    skip_word = ['m', 'w', 'f', 'div', 'x', 'd', 'gmbh', 'finleap']
     frequency = {}
     for word in urls.split('-'):
         if word in skip_word:

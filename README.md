@@ -28,21 +28,21 @@ Output Result:
 
 ```bash
 ('engineer', 114)
-('senior', 82)
+('senior', 84)
 ('developer', 69)
 ('backend', 38)
 ('software', 38)
 ('frontend', 30)
 ('fullstack', 22)
 ('devops', 21)
-('data', 19)
 ('javascript', 17)
-('finleap', 16)
-('div', 15)
 ('qa', 12)
 ('manager', 12)
 ('java', 11)
+('datascientist', 11)
 ('android', 10)
 ('engineering', 10)
+('berlin', 10)
+('node', 9)
 ```
 
