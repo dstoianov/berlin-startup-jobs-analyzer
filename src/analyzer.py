@@ -1,29 +1,35 @@
-# -*- coding: utf-8 -*-
 
-'''
-Created on 2018. 9. 17.
-
-@author: jason96
-'''
-from pyutil.fileutil import read_file
 import operator
 
 
 def analyzer():
-    urls = read_file('urls.txt')
-    urls = urls.replace('http://berlinstartupjobs.com/engineering/', '')
+    with open('urls.txt', 'r') as file:
+        urls = file.read()
+    urls = urls.replace('https://berlinstartupjobs.com/engineering/', '')
     urls = urls.replace('/', '')
+
+    urls = urls.replace('full-stack', 'fullstack')
+    urls = urls.replace('back-end', 'backend')
+    urls = urls.replace('front-end', 'frontend')
+    urls = urls.replace('dev-ops', 'devops')
+    urls = urls.replace('team-lead', 'teamlead')
+    urls = urls.replace('tech-lead', 'techlead')
+    urls = urls.replace('-js-', '-javascript-')
+
     urls = urls.replace('\n', '-')
+
+    skip_word = ['m', 'w', 'f', 'm', 'x', 'd', 'gmbh', 'finleap']
     frequency = {}
     for word in urls.split('-'):
+        if word in skip_word:
+            continue
         count = frequency.get(word, 0)
         frequency[word] = count + 1
 
     items = sorted(frequency.items(), key=operator.itemgetter(1), reverse=True)
     for x in items:
-        print x
+        print(x)
 
 
 if __name__ == '__main__':
     analyzer()
-
