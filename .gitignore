@@ -58,3 +58,4 @@ venv.bak/
 /.project
 /.pydevproject
 /src/urls.txt
+/src/tags.txt
