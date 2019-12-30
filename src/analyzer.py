@@ -1,34 +1,78 @@
 import operator
 
-
-def read(file_name: str):
-    with open(file_name, 'r') as file:
-        return file.read()
+from src import read
 
 
-def analyzer_urls():
-    urls = read('urls.txt')
+def tuning_stats(text: str) -> str:
+    data_to_replace = [
+        ('full-stack', 'fullstack'),
+        ('full-stack', 'fullstack'),
+        ('full-time', 'fulltime'),
+        ('back-end', 'backend'),
+        ('front-end', 'frontend'),
+        ('dev-ops', 'devops'),
+        ('team-lead', 'teamlead'),
+        ('tech-lead', 'techlead'),
+        ('science', 'scientist'),
+        ('data-scientist', 'datascientist'),
+        ('qa-engineer', 'qa'),
+        ('quality-assurance', 'qa'),
+        ('-js-', '-javascript-'),
+        ('sr-', 'senior-'),
+        ('mid-', 'middle-'),
+        ('ruby-on-rails', 'rubyonrails'),
+        ('site-reliability-engineer', 'sre'),
+        ('reactjs', 'react'),
+        ('golang', 'go'),
+        ('big-data', 'bigdata'),
+        # for Tags
+        ('postgres\n', 'postgresql\n'),
+        ('quality assurance', 'qa'),
+        ('full stack', 'fullstack'),
+        ('full-stack', 'fullstack'),
+        ('dev ops', 'devops'),
+        ('qa engineer', 'qa'),
+        ('react.js', 'react'),
+        ('front-end', 'frontend'),
+        ('data scientist', 'data science'),
+        ('nodejs\n', 'node\n'),
+        ('node.js\n', 'node\n'),
+        ('fullstack development\n', 'fullstack developer\n'),
 
-    print("===== analyze urls =====" * 3)
+    ]
 
-    urls = urls.replace('https://berlinstartupjobs.com/engineering/', '')
-    urls = urls.replace('/', '')
+    for value in data_to_replace:
+        text = text.replace(value[0], value[1])
 
-    urls = urls.replace('full-stack', 'fullstack')
-    urls = urls.replace('back-end', 'backend')
-    urls = urls.replace('front-end', 'frontend')
-    urls = urls.replace('dev-ops', 'devops')
-    urls = urls.replace('team-lead', 'teamlead')
-    urls = urls.replace('tech-lead', 'techlead')
-    urls = urls.replace('science', 'scientist')
-    urls = urls.replace('data-scientist', 'datascientist')
-    urls = urls.replace('quality-assurance', 'qa')
-    urls = urls.replace('-js-', '-javascript-')
-    urls = urls.replace('sr-', 'senior-')
+    return text
+
+
+def analyze_urls(file_name: str):
+    urls = read(file_name)
+
+    print("===== analyze urls =====")
+    total = len(urls.split('\n'))
+    print(f"Total URLs '{total}' in analyze")
+    print("===== analyze urls =====")
+
+    if 'berlinstartupjobs' in urls:
+        urls = urls.replace('https://berlinstartupjobs.com/engineering/', '')
+        urls = urls.replace('/', '')
+
+    if 'stackoverflow' in urls:
+        urls = urls.replace('https://stackoverflow.com/jobs/', '')
+        tmp_list = []
+        for url in urls.split("\n"):
+            url = url.split('?')[0]  # remove request parameters
+            url = url.split('/')[1]  # remove job id
+            tmp_list.append(url)
+        urls = ('\n'.join(tmp_list))
+
+    urls = tuning_stats(urls)
 
     urls = urls.replace('\n', '-')
 
-    skip_word = ['m', 'w', 'f', 'div', 'x', 'd', 'gmbh', 'finleap']
+    skip_word = ['d', 'm', 'w', 'f', 'in', 'div', 'x', 'se', 'gmbh', 'berlin']
     frequency = {}
     for word in urls.split('-'):
         if word in skip_word:
@@ -41,24 +85,15 @@ def analyzer_urls():
         print(x)
 
 
-def analyzer_tags():
-    tags = read('tags.txt')
+def analyze_tags(file_name: str):
+    tags = read(file_name)
 
-    print("===== analyze tags =====" * 3)
+    print("===== analyze tags =====")
+    total = len(tags.split('\n'))
+    print(f"Total tags '{total}' in analyze")
+    print("===== analyze tags =====")
 
-    tags = tags.replace('go\n', 'golang\n')
-    tags = tags.replace('postgres\n', 'postgresql\n')
-    tags = tags.replace('quality assurance', 'qa')
-    tags = tags.replace('full stack', 'fullstack')
-    tags = tags.replace('full-stack', 'fullstack')
-    tags = tags.replace('dev ops', 'devops')
-    tags = tags.replace('qa engineer', 'qa')
-    tags = tags.replace('react.js', 'react')
-    tags = tags.replace('front-end', 'frontend')
-    tags = tags.replace('data scientist', 'data science')
-    tags = tags.replace('nodejs\n', 'node.js\n')
-    tags = tags.replace('node\n', 'node.js\n')
-    tags = tags.replace('fullstack development\n', 'fullstack developer\n')
+    tags = tuning_stats(tags)
 
     frequency = {}
     for word in tags.split('\n'):
@@ -71,5 +106,8 @@ def analyzer_tags():
 
 
 if __name__ == '__main__':
-    analyzer_urls()
-    analyzer_tags()
+    analyze_urls('urls.txt')
+    analyze_tags('tags.txt')
+
+    analyze_urls('urls_so.txt')
+    analyze_tags('tags_so.txt')
