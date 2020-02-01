@@ -16,7 +16,9 @@
 |URLs 2020-02
 |URLs 2020-03
 
-a|```bash
+a|
+[source,bash]
+----
 ===== analyze urls =====
 Total URLs '248' in analyze
 ===== analyze urls =====
@@ -111,8 +113,10 @@ Total URLs '248' in analyze
 ('quality', 2)
 ('humanoo', 2)
 ...
-```
-a|```bash
+----
+a|
+[source,bash]
+----
 ===== analyze urls =====
 Total URLs '223' in analyze
 ===== analyze urls =====
@@ -207,10 +211,9 @@ Total URLs '223' in analyze
 ('co', 2)
 ('infrastructure', 2)
 ...
-```
+----
 |Cell in column 1, row 2
 |===
-
 
 
 === Berlin Startup Jobs, Tags analysis
@@ -222,7 +225,9 @@ Total URLs '223' in analyze
 |Tags 2020-02
 |Tags 2020-03
 
-a|```bash
+a|
+[source,bash]
+----
 ===== analyze tags =====
 Total tags '1020' in analyze
 ===== analyze tags =====
@@ -357,9 +362,10 @@ Total tags '1020' in analyze
 ('project coordination', 2)
 ('laravel', 2)
 ...
-```
-
-a|```bash
+----
+a|
+[source,bash]
+----
 ===== analyze tags =====
 Total tags '907' in analyze
 ===== analyze tags =====
@@ -488,7 +494,7 @@ Total tags '907' in analyze
 ('technical writer', 2)
 ('technology', 2)
 ...
-```
+----
 |data
 |===
 
@@ -502,7 +508,9 @@ Total tags '907' in analyze
 |URLs 2020-02
 |URLs 2020-03
 
-a|```bash
+a|
+[source,bash]
+----
 ===== analyze urls =====
 Total URLs '506' in analyze
 ===== analyze urls =====
@@ -860,8 +868,10 @@ Total URLs '506' in analyze
 ('ada', 2)
 ('jvm', 2)
 ...
-```
-a|```bash
+----
+a|
+[source,bash]
+----
 ===== analyze urls =====
 Total URLs '485' in analyze
 ===== analyze urls =====
@@ -1189,7 +1199,7 @@ Total URLs '485' in analyze
 ('ada', 2)
 ('jvm', 2)
 ...
-```
+----
 |3
 
 |===
@@ -1203,7 +1213,9 @@ Total URLs '485' in analyze
 |Tags 2020-02
 |Tags 2020-03
 
-a|```bash
+a|
+[source,bash]
+----
 ===== analyze tags =====
 Total tags '2122' in analyze
 ===== analyze tags =====
@@ -1384,8 +1396,10 @@ Total tags '2122' in analyze
 ('coffeescript', 2)
 ('google-bigquery', 2)
 ...
-```
-a|```bash
+----
+a|
+[source,bash]
+----
 ===== analyze tags =====
 Total tags '2020' in analyze
 ===== analyze tags =====
@@ -1558,7 +1572,7 @@ Total tags '2020' in analyze
 ('dicom', 2)
 ('eclipse', 2)
 ...
-```
+----
 |3
 
 |===
