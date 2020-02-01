@@ -57,8 +57,6 @@ venv.bak/
 /.settings/
 /.project
 /.pydevproject
-/src/urls.txt
-/src/urls_so.txt
-/src/tags.txt
-/src/tags_so.txt
+/src/data/*
+*.txt
 

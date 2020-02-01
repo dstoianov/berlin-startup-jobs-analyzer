@@ -82,7 +82,8 @@ def analyze_urls(file_name: str):
 
     items = sorted(frequency.items(), key=operator.itemgetter(1), reverse=True)
     for x in items:
-        print(x)
+        if x[1] > 1:
+            print(x)
 
 
 def analyze_tags(file_name: str):
@@ -102,12 +103,13 @@ def analyze_tags(file_name: str):
 
     items = sorted(frequency.items(), key=operator.itemgetter(1), reverse=True)
     for x in items:
-        print(x)
+        if x[1] > 1:
+            print(x)
 
 
 if __name__ == '__main__':
-    analyze_urls('urls.txt')
-    analyze_tags('tags.txt')
+    analyze_urls('urls_bsj.txt')
+    analyze_tags('tags_bsj.txt')
 
     analyze_urls('urls_so.txt')
     analyze_tags('tags_so.txt')
