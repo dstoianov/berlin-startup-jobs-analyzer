@@ -15,18 +15,17 @@
 
 ## Quick start
 
-1. clone repository
-    ```bash
+1. clone repository, install libs check outdated
+    ```sh
     git clone https://github.com/dstoianov/berlin-startup-jobs-analyzer.git
     cd berlin-startup-jobs-analyzer/
-    virtualenv .venv --python=python3
+    python3 -m venv .venv or via virtualenv .venv --python=python3
     source .venv/bin/activate
     pip install -r requirements.txt
-    python src/crawler.py
-    python src/analyzer.py
+    pip list --outdated  # show outdated libs
     ```
 1. collect and analyze data
-    ```bash
+    ```sh
     python src/crawler.py
     python src/analyzer.py
     ```
