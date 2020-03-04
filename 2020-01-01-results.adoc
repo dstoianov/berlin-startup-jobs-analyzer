@@ -1,4 +1,4 @@
-= Url Shortener project based on spring boot icon:power-off[]
+= Results on `2020-01-01`
 :icons: font
 :toc: left
 :toclevels: 4
@@ -7,7 +7,7 @@
 
 == 1. Results icon:fire[]
 
-=== Analyze Berlin Startup Jobs https://berlinstartupjobs.com/engineering/[Engineering section]
+=== Analyze Berlin Startup https://berlinstartupjobs.com/engineering/[Jobs]
 
 ==== Analyze URLs
 

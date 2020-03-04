@@ -1,4 +1,5 @@
 import time
+import random
 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -13,10 +14,10 @@ def write_text(file_name: str, values: list):
         print("No data to write!")
 
 
-def sleep(page: int):
-    wait = page if page < 9 else 9
-    print(f"wait for {str(1 + wait)} sec..")
-    time.sleep(1 + wait)  # simulate that you are human :)
+def sleep_as_human():
+    wait = random.randrange(5) + 1
+    print(f"wait for {str(wait)} sec..")
+    time.sleep(wait)  # simulate that you are human :)
 
 
 def crawl_startup_jobs():
@@ -42,7 +43,7 @@ def crawl_startup_jobs():
                 for tag in tags:
                     target_tags.append(tag.text.lower())
 
-            sleep(page)
+            sleep_as_human()
     except Exception as e:
         print(f"Exception happens, close WebDriver.. {str(e)}")
     finally:
@@ -74,7 +75,8 @@ def crawl_stack_overflow():
                     if len(tag) > 0:
                         # print(f"add tag '${tag}'")  # for debug only
                         target_tags.append(tag)
-            sleep(page)
+
+            sleep_as_human()
     except Exception as e:
         print(f"Exception happens, close WebDriver.. {str(e)}")
     finally:
