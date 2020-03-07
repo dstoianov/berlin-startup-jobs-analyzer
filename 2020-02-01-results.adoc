@@ -1,4 +1,4 @@
-= Results on `2020-02-01`
+= `2020-02-01` Results
 :icons: font
 :toc: left
 :toclevels: 4
