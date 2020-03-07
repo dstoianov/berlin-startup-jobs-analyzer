@@ -10,7 +10,7 @@
 === Analyze Berlin Startup https://berlinstartupjobs.com/engineering/[Jobs]
 
 .Berlin Startup Jobs
-[cols="1,1", options="header"]
+[cols="<.<,<.<", options="header"]
 |===
 |URLs
 |TAGs
@@ -255,7 +255,7 @@ Total tags '1020' in analyze
 === Analyze Stack Overflow
 
 .Stack Overflow
-[cols="1,1", options="header"]
+[cols="<.<,<.<", options="header"]
 |===
 |URLs
 |TAGs
