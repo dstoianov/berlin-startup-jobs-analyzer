@@ -1,8 +1,16 @@
 import time
 import random
+import datetime
 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+
+
+def save_to_file(file_name: str, data_list: list):
+    dt = datetime.datetime.today()
+    number = f"{dt.year}-{dt.month}"
+    file_n = f"03_{file_name}.txt"
+    write_text(file_n, data_list)
 
 
 def write_text(file_name: str, values: list):
@@ -49,8 +57,8 @@ def crawl_startup_jobs():
     finally:
         print("Close WebDriver...")
         driver.quit()
-        write_text('urls_bsj.txt', target_urls)
-        write_text('tags_bsj.txt', target_tags)
+        save_to_file('urls_bsj', target_urls)
+        save_to_file('tags_bsj', target_tags)
 
 
 def crawl_stack_overflow():
@@ -82,10 +90,10 @@ def crawl_stack_overflow():
     finally:
         print("Close WebDriver...")
         driver.quit()
-        write_text('urls_so.txt', target_urls)
-        write_text('tags_so.txt', target_tags)
+        save_to_file('urls_so', target_urls)
+        save_to_file('tags_so', target_tags)
 
 
 if __name__ == '__main__':
-    crawl_startup_jobs()
+    # crawl_startup_jobs()
     crawl_stack_overflow()
