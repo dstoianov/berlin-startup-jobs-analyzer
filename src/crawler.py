@@ -8,9 +8,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 def save_to_file(file_name: str, data_list: list):
     dt = datetime.datetime.today()
-    number = f"{dt.year}-{dt.month}"
-    file_n = f"03_{file_name}.txt"
-    write_text(file_n, data_list)
+    prefix = "{}_{:02d}".format(dt.year, dt.month)
+    write_text(f"{prefix}_{file_name}.txt", data_list)
 
 
 def write_text(file_name: str, values: list):
@@ -95,5 +94,5 @@ def crawl_stack_overflow():
 
 
 if __name__ == '__main__':
-    # crawl_startup_jobs()
+    crawl_startup_jobs()
     crawl_stack_overflow()

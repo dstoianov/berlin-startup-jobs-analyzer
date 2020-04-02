@@ -108,7 +108,7 @@ def analyze_tags(file_name: str):
 
 
 if __name__ == '__main__':
-    folder = "data/03/03_"
+    folder = "data/04/2020_04_"
     analyze_urls(f'{folder}urls_bsj.txt')
     analyze_tags(f'{folder}tags_bsj.txt')
 
