@@ -1,4 +1,4 @@
-= Results on `2020-01-01`
+= `2020-01-01` Results
 :icons: font
 :toc: left
 :toclevels: 4
@@ -9,8 +9,13 @@
 
 === Analyze Berlin Startup https://berlinstartupjobs.com/engineering/[Jobs]
 
-==== Analyze URLs
+.Berlin Startup Jobs
+[cols="<.<,<.<", options="header"]
+|===
+|URLs
+|TAGs
 
+a|
 ```bash
 ===== analyze urls =====
 Total URLs '248' in analyze
@@ -107,8 +112,7 @@ Total URLs '248' in analyze
 ('humanoo', 2)
 ...
 ```
-
-==== Analyze Tags
+a|
 ```bash
 ===== analyze tags =====
 Total tags '1020' in analyze
@@ -246,10 +250,17 @@ Total tags '1020' in analyze
 ...
 ```
 
+|===
 
 === Analyze Stack Overflow
 
-==== Analyze URLs
+.Stack Overflow
+[cols="<.<,<.<", options="header"]
+|===
+|URLs
+|TAGs
+
+a|
 ```bash
 ===== analyze urls =====
 Total URLs '506' in analyze
@@ -609,10 +620,7 @@ Total URLs '506' in analyze
 ('jvm', 2)
 ...
 ```
-
-
-==== Analyze Tags
-
+a|
 ```bash
 ===== analyze tags =====
 Total tags '2122' in analyze
@@ -795,3 +803,5 @@ Total tags '2122' in analyze
 ('google-bigquery', 2)
 ...
 ```
+
+|===
