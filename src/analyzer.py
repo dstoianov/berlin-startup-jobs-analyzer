@@ -1,45 +1,10 @@
+
 import operator
 
-from src import read
+from src import read, data_to_replace
 
 
 def tuning_stats(text: str) -> str:
-    data_to_replace = [
-        ('full-stack', 'fullstack'),
-        ('full-stack', 'fullstack'),
-        ('full-time', 'fulltime'),
-        ('back-end', 'backend'),
-        ('front-end', 'frontend'),
-        ('dev-ops', 'devops'),
-        ('team-lead', 'teamlead'),
-        ('tech-lead', 'techlead'),
-        ('science', 'scientist'),
-        ('data-scientist', 'datascientist'),
-        ('qa-engineer', 'qa'),
-        ('quality-assurance', 'qa'),
-        ('-js-', '-javascript-'),
-        ('sr-', 'senior-'),
-        ('mid-', 'middle-'),
-        ('ruby-on-rails', 'rubyonrails'),
-        ('site-reliability-engineer', 'sre'),
-        ('reactjs', 'react'),
-        ('golang', 'go'),
-        ('big-data', 'bigdata'),
-        # for Tags
-        ('postgres\n', 'postgresql\n'),
-        ('quality assurance', 'qa'),
-        ('full stack', 'fullstack'),
-        ('full-stack', 'fullstack'),
-        ('dev ops', 'devops'),
-        ('qa engineer', 'qa'),
-        ('react.js', 'react'),
-        ('front-end', 'frontend'),
-        ('data scientist', 'data science'),
-        ('nodejs\n', 'node\n'),
-        ('node.js\n', 'node\n'),
-        ('fullstack development\n', 'fullstack developer\n'),
-
-    ]
 
     for value in data_to_replace:
         text = text.replace(value[0], value[1])
@@ -107,10 +72,22 @@ def analyze_tags(file_name: str):
             print(x)
 
 
+def monthly_stats():
+    print("Total count...")
+    for month in ["01", "02", "03", "04", "05", "06"]:
+        res = "| 2020-" + month
+        for file in ["tags_bsj", "urls_bsj", "tags_so", "urls_so"]:
+            records = read(f"data/{month}/2020_{month}_{file}.txt")
+            res += "| " + str(len(records.split('\n')))
+
+        print(res + " |")
+
+
 if __name__ == '__main__':
-    folder = "data/05/2020_05_"
+    folder = "data/06/2020_06_"
     analyze_urls(f'{folder}urls_bsj.txt')
     analyze_tags(f'{folder}tags_bsj.txt')
 
     analyze_urls(f'{folder}urls_so.txt')
     analyze_tags(f'{folder}tags_so.txt')
+    monthly_stats()
