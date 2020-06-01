@@ -57,6 +57,7 @@ def crawl_startup_jobs():
         print("Close WebDriver...")
         driver.quit()
         save_to_file('urls_bsj', target_urls)
+        target_tags.sort()
         save_to_file('tags_bsj', target_tags)
 
 
@@ -90,6 +91,7 @@ def crawl_stack_overflow():
         print("Close WebDriver...")
         driver.quit()
         save_to_file('urls_so', target_urls)
+        target_tags.sort()
         save_to_file('tags_so', target_tags)
 
 
