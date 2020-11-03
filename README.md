@@ -21,6 +21,7 @@
     cd berlin-startup-jobs-analyzer/
     python3 -m venv .venv or via virtualenv .venv --python=python3
     source .venv/bin/activate
+    pip install --upgrade pip
     pip install -r requirements.txt
     pip list --outdated  # show outdated libs
     ```
@@ -52,4 +53,6 @@ Output Results:
 | 2020-04| 830| 196| 1605| 390 |
 | 2020-05| 682| 162| 1294| 318 |
 | 2020-06| 430| 113| 1138| 278 |
+| 2020-08| 458| 137| 1117| 281 |
+| 2020-10| 731| 185| 1311| 313 |
 

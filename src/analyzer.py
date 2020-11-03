@@ -73,10 +73,13 @@ def analyze_tags(file_name: str):
 
 
 def monthly_stats():
-    print("Total count...")
-    for month in ["01", "02", "03", "04", "05", "06"]:
+    print("\nTotal count...")
+    header = ["tags_bsj", "urls_bsj", "tags_so", "urls_so"]
+    print(header)
+
+    for month in ["01", "02", "03", "04", "05", "06", "08", "10"]:
         res = "| 2020-" + month
-        for file in ["tags_bsj", "urls_bsj", "tags_so", "urls_so"]:
+        for file in header:
             records = read(f"data/{month}/2020_{month}_{file}.txt")
             res += "| " + str(len(records.split('\n')))
 
@@ -84,7 +87,7 @@ def monthly_stats():
 
 
 if __name__ == '__main__':
-    folder = "data/06/2020_06_"
+    folder = "data/10/2020_10_"
     analyze_urls(f'{folder}urls_bsj.txt')
     analyze_tags(f'{folder}tags_bsj.txt')
 
