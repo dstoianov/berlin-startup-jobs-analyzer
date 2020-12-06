@@ -1,3 +1,15 @@
+import logging
+
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+
+formatter = logging.Formatter('%(asctime)s [%(filename)s:%(lineno)d] %(levelname)s: %(message)s')
+handler.setFormatter(formatter)
+
+logger.addHandler(handler)
+logger.setLevel(logging.INFO)
+
+
 # common methods
 
 
@@ -6,6 +18,7 @@ def read(file_name: str) -> str:
         return file.read()
 
 
+#  first word will be replaced by second one
 data_to_replace = [
     ('full-stack', 'fullstack'),
     ('full-stack', 'fullstack'),
@@ -50,5 +63,10 @@ data_to_replace = [
     ('android ndk', 'android'),
     ('amazon-web-services', 'aws'),
     ('c#', '.net'),
+    ('.net (core)', '.net'),
+    ('vue.js', 'vue'),
+    ('vuejs', 'vue'),
+    ('azure cloud', 'azure'),
+    ('html5', 'html'),
     # ('django', 'python'),
 ]
