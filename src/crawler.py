@@ -1,6 +1,7 @@
 import time
 import random
 import datetime
+from src import logger as log
 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -14,16 +15,16 @@ def save_to_file(file_name: str, data_list: list):
 
 def write_text(file_name: str, values: list):
     if len(values) > 0:
-        print(f"Collect entries '{str(len(values))}' for '{file_name}'")
+        log.info(f"Collect entries '{str(len(values))}' for '{file_name}'")
         with open(file_name, 'w') as file:
             file.write('\n'.join(values))
     else:
-        print("No data to write!")
+        log.warn("No data to write!")
 
 
 def sleep_as_human():
     wait = random.randrange(5) + 1
-    print(f"wait for {str(wait)} sec..")
+    log.info(f"wait for {str(wait)} sec..")
     time.sleep(wait)  # simulate that you are human :)
 
 
@@ -38,7 +39,7 @@ def crawl_startup_jobs():
             base_url = 'http://berlinstartupjobs.com/engineering/'
             if page != 1:
                 base_url = base_url + 'page/' + str(page)
-            print(f"open url '{base_url}'")
+            log.info(f"open url '{base_url}'")
             driver.get(base_url)
 
             elements = driver.find_elements_by_css_selector('.jobs-list-items li')
@@ -52,9 +53,9 @@ def crawl_startup_jobs():
 
             sleep_as_human()
     except Exception as e:
-        print(f"Exception happens, close WebDriver.. {str(e)}")
+        log.error(f"Exception happens, close WebDriver.. {str(e)}")
     finally:
-        print("Close WebDriver...")
+        log.info("Close WebDriver...")
         driver.quit()
         save_to_file('urls_bsj', target_urls)
         target_tags.sort()
@@ -69,7 +70,7 @@ def crawl_stack_overflow():
         driver.maximize_window()
         for page in range(1, 22):
             base_url = f"https://stackoverflow.com/jobs?l=Berlin%2c+Germany&d=50&u=Km&sort=i&pg={page}"
-            print(f"open url '{base_url}'")
+            log.info(f"open url '{base_url}'")
             driver.get(base_url)
 
             elements = driver.find_elements_by_css_selector('.listResults .-job')
@@ -86,9 +87,9 @@ def crawl_stack_overflow():
 
             sleep_as_human()
     except Exception as e:
-        print(f"Exception happens, close WebDriver.. {str(e)}")
+        log.error(f"Exception happens, close WebDriver.. {str(e)}")
     finally:
-        print("Close WebDriver...")
+        log.info("Close WebDriver...")
         driver.quit()
         save_to_file('urls_so', target_urls)
         target_tags.sort()

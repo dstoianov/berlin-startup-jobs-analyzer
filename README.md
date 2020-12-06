@@ -43,7 +43,9 @@ Output Results:
  - see files in `adoc` format in repo
 
 
-###  Posted Statistics: 
+###  Statistics:
+ 
+Number of open vacancies and tags in them for BerlinStartupJobs and Stack OverFlow sites
 
 | Date   | BerlinStartupJobs Tags |  BerlinStartupJobs Urls | StackOverFlow Tags  |  StackOverFlow Urls |
 |----------|:-------------:|:------:|:----:|:----:|
@@ -55,4 +57,5 @@ Output Results:
 | 2020-06| 430| 113| 1138| 278 |
 | 2020-08| 458| 137| 1117| 281 |
 | 2020-10| 731| 185| 1311| 313 |
+| 2020-11| 678| 172| 1418| 337 |
 
