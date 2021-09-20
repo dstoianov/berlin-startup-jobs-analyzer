@@ -19,7 +19,7 @@ def write_text(file_name: str, values: list):
         with open(file_name, 'w') as file:
             file.write('\n'.join(values))
     else:
-        log.warn("No data to write!")
+        log.warning("No data to write!")
 
 
 def sleep_as_human():
@@ -68,7 +68,7 @@ def crawl_stack_overflow():
     try:
         driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), )
         driver.maximize_window()
-        for page in range(1, 22):
+        for page in range(1, 15):
             base_url = f"https://stackoverflow.com/jobs?l=Berlin%2c+Germany&d=50&u=Km&sort=i&pg={page}"
             log.info(f"open url '{base_url}'")
             driver.get(base_url)
@@ -78,7 +78,7 @@ def crawl_stack_overflow():
                 href = elem.find_element_by_css_selector('h2 a').get_attribute('href')
                 target_urls.append(href)
 
-                tags = elem.find_elements_by_css_selector('div .post-tag')
+                tags = elem.find_elements_by_css_selector('div .s-tag')
                 for tag in tags:
                     tag = tag.text.lower()
                     if len(tag) > 0:
