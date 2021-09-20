@@ -1,0 +1,17 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "04:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - dstoianov
+  ignore:
+  - dependency-name: flake8
+    versions:
+    - 3.9.0
+  - dependency-name: webdriver-manager
+    versions:
+    - 3.3.0
