@@ -80,17 +80,17 @@ def monthly_stats():
     for month in ["01", "02", "03", "04", "05", "06", "08", "10", "11"]:
         res = "| 2020-" + month
         for file in header:
-            records = read(f"data/{month}/2020_{month}_{file}.txt")
+            records = read(f"data/2020/{month}/2020_{month}_{file}.txt")
             res += "| " + str(len(records.split('\n')))
 
         print(res + " |")
 
 
 if __name__ == '__main__':
-    folder = "data/11/2020_11_"
+    folder = "data/2021/09/2021_09_"
     analyze_urls(f'{folder}urls_bsj.txt')
     analyze_tags(f'{folder}tags_bsj.txt')
 
-    # analyze_urls(f'{folder}urls_so.txt')
-    # analyze_tags(f'{folder}tags_so.txt')
+    analyze_urls(f'{folder}urls_so.txt')
+    analyze_tags(f'{folder}tags_so.txt')
     monthly_stats()
